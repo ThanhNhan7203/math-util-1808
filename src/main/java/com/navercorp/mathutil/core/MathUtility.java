@@ -17,18 +17,17 @@ public class MathUtility {
     //Quy ước 0! = 1! = 1
     //Bài này chỉ làm từ 0 -> 20! vì 21! vượt (long)  
     public static long getFactorial(int n){
-        long product =1; //tích-kết quả phép nhân
+         //tích-kết quả phép nhân
         
         if( n < 0 || n >20)
             throw new IllegalArgumentException("Invalid n. n must be between 0..20");
         
-        if ( n == 0 )
+        if ( n == 0 || n == 1)
             return 1;
         
-        for (int i = 1; i <= n; i++) 
-            product *= i; // Thuật toán nhân dồn
+        return n * getFactorial(n-1);
         
-        return product; 
+       
         
         
     }
